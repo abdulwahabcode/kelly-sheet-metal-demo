@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kelly Sheet Metal — Precision TIG Welding & Custom Fabrication | Lowell, MA</title>
+<meta name="description" content="Kelly Sheet Metal — custom sheet metal fabrication and precision TIG welding in Lowell, MA. Quick quotes, one-off custom work, repairs.">
+<style>
+  :root{
+    --ink:#20242A;          /* gunmetal tinted black */
+    --ink-2:#262B33;
+    --steel:#39414C;        /* 30% */
+    --slate:#5B6570;
+    --paper:#EFEBE4;        /* 60% light */
+    --card:#E4DFD4;
+    --accent:#C77B33;       /* molten orange, 10% only */
+    --accent-deep:#A86424;
+    --text:#EDEAE2;         /* off-white on dark */
+    --text-dark:#2A2E34;
+    --muted:#AEB4BC;
+    --line:rgba(237,234,226,.14);
+    --line-dark:rgba(42,46,52,.16);
+    --mono:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+    --sans:system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);background:var(--ink);color:var(--text);overflow-x:hidden;line-height:1.6;-webkit-text-size-adjust:100%}
+  a{color:inherit}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+
+  /* ---------- NAV ---------- */
+  nav{position:sticky;top:0;z-index:50;background:rgba(32,36,42,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .brand{font-family:var(--mono);font-size:.8rem;letter-spacing:.22em;font-weight:700;text-decoration:none}
+  .brand span{color:var(--accent)}
+  .nav-links{display:none;gap:26px}
+  .nav-links a{text-decoration:none;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .nav-links a:hover{color:var(--text)}
+  .nav-cta{display:inline-block;background:var(--accent);color:#1B1E23;text-decoration:none;font-weight:800;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;padding:10px 20px;border-radius:2px}
+  .nav-cta:hover{background:var(--accent-deep)}
+  @media(min-width:760px){.nav-links{display:flex}}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;background:linear-gradient(160deg,var(--ink) 0%,var(--ink-2) 60%,#2E2420 130%);padding:88px 0 110px;clip-path:polygon(0 0,100% 0,100% calc(100% - 56px),0 100%)}
+  .hero-grid-bg{position:absolute;inset:0;opacity:.5;pointer-events:none;
+    background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+    background-size:56px 56px;
+    mask-image:radial-gradient(ellipse 90% 80% at 50% 20%,#000 30%,transparent 75%);
+    -webkit-mask-image:radial-gradient(ellipse 90% 80% at 50% 20%,#000 30%,transparent 75%)}
+  .kicker{font-family:var(--mono);font-size:.75rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin-bottom:18px}
+  .hero h1{font-size:clamp(2.6rem,9vw,5rem);line-height:.98;font-weight:800;letter-spacing:-.015em;text-transform:uppercase}
+  .hero h1 .thin{display:block;font-weight:300;color:var(--muted);font-size:.42em;letter-spacing:.34em;margin-top:10px}
+  .hero p.lede{max-width:560px;color:var(--muted);font-size:1.06rem;margin:22px 0 34px}
+  .btn-row{display:flex;flex-wrap:wrap;gap:14px}
+  .btn{display:inline-block;text-decoration:none;font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:.9rem;padding:16px 30px;border-radius:2px;min-height:52px}
+  .btn-solid{background:var(--accent);color:#1B1E23}
+  .btn-solid:hover{background:var(--accent-deep)}
+  .btn-ghost{border:1px solid var(--muted);color:var(--text)}
+  .btn-ghost:hover{border-color:var(--text)}
+  .spec-strip{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:46px;font-family:var(--mono);font-size:.78rem;letter-spacing:.2em;color:var(--slate);text-transform:uppercase}
+  .spec-strip b{color:var(--text)}
+
+  /* ---------- TICKER ---------- */
+  .ticker{background:var(--accent);color:#1B1E23;overflow:hidden;white-space:nowrap;padding:10px 0;font-family:var(--mono);font-size:.78rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase}
+  .ticker span{display:inline-block;padding-left:100%;animation:tick 22s linear infinite}
+  @keyframes tick{to{transform:translateX(-100%)}}
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:76px 0}
+  .sec-kicker{font-family:var(--mono);font-size:.75rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+  .light .sec-kicker{color:var(--accent-deep)}
+  h2{font-size:clamp(1.7rem,5vw,2.6rem);font-weight:800;letter-spacing:-.01em;text-transform:uppercase;line-height:1.08;margin-bottom:14px}
+  .sec-sub{color:var(--muted);max-width:600px;margin-bottom:44px}
+  .light{background:var(--paper);color:var(--text-dark)}
+  .light .sec-sub{color:#5A5E63}
+
+  /* services: spec-sheet rows */
+  .spec-list{border-top:1px solid var(--line-dark)}
+  .spec-row{display:grid;grid-template-columns:56px 1fr;gap:6px 18px;padding:26px 4px;border-bottom:1px solid var(--line-dark);align-items:start}
+  .spec-num{font-family:var(--mono);color:var(--accent-deep);font-weight:700;font-size:.9rem;padding-top:4px}
+  .spec-row h3{font-size:1.18rem;font-weight:800;text-transform:uppercase;letter-spacing:.02em;margin-bottom:6px}
+  .spec-row p{color:#5A5E63;font-size:.98rem;max-width:640px}
+  .spec-tag{display:inline-block;font-family:var(--mono);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;border:1px solid var(--line-dark);border-radius:20px;padding:5px 12px;margin-top:10px;color:#6B7076}
+  @media(min-width:760px){.spec-row{grid-template-columns:80px 1fr 220px}.spec-tag{justify-self:end;margin-top:4px}}
+
+  /* why us: dark steel cards */
+  .dark{background:var(--ink)}
+  .cards{display:grid;gap:16px;grid-template-columns:1fr}
+  @media(min-width:700px){.cards{grid-template-columns:1fr 1fr}}
+  .card{background:var(--steel);border:1px solid var(--line);border-radius:4px;padding:30px 26px}
+  .card svg{width:34px;height:34px;stroke:var(--accent);fill:none;stroke-width:1.8;margin-bottom:16px}
+  .card h3{font-size:1.05rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;margin-bottom:8px}
+  .card p{color:var(--muted);font-size:.95rem}
+
+  /* service area */
+  .area-grid{display:grid;gap:10px;grid-template-columns:1fr 1fr;margin-top:30px}
+  @media(min-width:700px){.area-grid{grid-template-columns:repeat(3,1fr)}}
+  .area-chip{border:1px solid var(--line-dark);border-radius:2px;padding:16px 18px;font-family:var(--mono);font-size:.85rem;letter-spacing:.08em;display:flex;align-items:center;gap:10px;background:#fff}
+  .area-chip i{width:8px;height:8px;background:var(--accent);border-radius:50%;flex:none}
+
+  /* contact band */
+  .contact-band{background:linear-gradient(140deg,#2A2119,var(--ink-2) 70%);border-top:1px solid var(--line);text-align:center;padding:90px 0}
+  .contact-band h2{color:var(--text)}
+  .contact-band p{color:var(--muted);max-width:520px;margin:0 auto 34px}
+  .mail-big{font-family:var(--mono);font-size:clamp(.85rem,3.4vw,1.15rem);letter-spacing:.04em;color:var(--accent);text-decoration:none;border:1px solid var(--accent);border-radius:2px;padding:16px 26px;display:inline-block;word-break:break-all}
+  .mail-big:hover{background:var(--accent);color:#1B1E23}
+
+  footer{background:#191C21;color:var(--muted);padding:34px 0;font-size:.85rem}
+  footer .wrap{display:flex;flex-direction:column;gap:10px;align-items:center;text-align:center}
+  footer a{color:var(--text);text-decoration:none}
+  .demo-note{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;color:#6E747C;text-transform:uppercase}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top">KELLY<span>SHEET</span>METAL</a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#why">Why Us</a>
+      <a href="#area">Service Area</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="nav-cta" href="#contact">Get a Quote</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-grid-bg"></div>
+  <div class="wrap" style="position:relative">
+    <p class="kicker">Lowell, Massachusetts · Est. Local Shop</p>
+    <h1>Kelly<br>Sheet Metal<span class="thin">Precision TIG Welding</span></h1>
+    <p class="lede">Custom sheet metal fabrication and precision TIG welding for homeowners, contractors, and small businesses. One-off parts, repairs, and full custom builds — cut, bent, and welded to spec.</p>
+    <div class="btn-row">
+      <a class="btn btn-solid" href="mailto:kellysheetmetal01852@gmail.com?subject=Quote%20request%20—%20Kelly%20Sheet%20Metal">Email for a Quote</a>
+      <a class="btn btn-ghost" href="https://www.facebook.com/277DuttonStLowellMa/" target="_blank" rel="noopener">Facebook Page</a>
+    </div>
+    <div class="spec-strip">
+      <span><b>TIG</b> · Precision</span>
+      <span><b>MIG</b> · Structural</span>
+      <span><b>Custom</b> · Fabrication</span>
+      <span><b>Fast</b> · Quotes</span>
+    </div>
+  </div>
+</header>
+
+<div class="ticker"><span>Custom Fabrication — Precision TIG Welding — Quick Quotes — Lowell MA — Custom Fabrication — Precision TIG Welding — Quick Quotes — Lowell MA —&nbsp;</span></div>
+
+<section class="light" id="services">
+  <div class="wrap">
+    <p class="sec-kicker">/ Services</p>
+    <h2>What We Build</h2>
+    <p class="sec-sub">From a single bracket to a full custom enclosure — if it's metal, we can cut it, shape it, and weld it.</p>
+    <div class="spec-list">
+      <div class="spec-row">
+        <div class="spec-num">01</div>
+        <div><h3>Custom Sheet Metal Fabrication</h3><p>Bespoke panels, boxes, brackets, and enclosures fabricated to your measurements. Bring a sketch, a sample, or just an idea.</p></div>
+        <span class="spec-tag">Cut · Bend · Form</span>
+      </div>
+      <div class="spec-row">
+        <div class="spec-num">02</div>
+        <div><h3>Precision TIG Welding</h3><p>Clean, precise TIG welds on stainless steel and aluminum — ideal for visible work, food-grade parts, and detailed assemblies.</p></div>
+        <span class="spec-tag">Stainless · Aluminum</span>
+      </div>
+      <div class="spec-row">
+        <div class="spec-num">03</div>
+        <div><h3>MIG Welding &amp; Repairs</h3><p>Strong, fast MIG welding for steel repairs — gates, railings, trailers, equipment frames, and broken brackets made solid again.</p></div>
+        <span class="spec-tag">Steel · Structural</span>
+      </div>
+      <div class="spec-row">
+        <div class="spec-num">04</div>
+        <div><h3>Ductwork &amp; Fittings</h3><p>Custom duct transitions, fittings, and venting fabricated to fit spaces where off-the-shelf parts don't.</p></div>
+        <span class="spec-tag">HVAC · Custom Fit</span>
+      </div>
+      <div class="spec-row">
+        <div class="spec-num">05</div>
+        <div><h3>Prototypes &amp; One-Off Parts</h3><p>Small-batch and single-piece runs for inventors, contractors, and shops. No minimum order — one part is fine.</p></div>
+        <span class="spec-tag">No Minimums</span>
+      </div>
+      <div class="spec-row">
+        <div class="spec-num">06</div>
+        <div><h3>On-Site Welding Repairs</h3><p>Broken handrail? Cracked trailer frame? We come to you for repairs that can't easily be moved to the shop.</p></div>
+        <span class="spec-tag">Mobile Service</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dark" id="why">
+  <div class="wrap">
+    <p class="sec-kicker">/ Why Kelly</p>
+    <h2>Built Like We Sign It</h2>
+    <p class="sec-sub">A local fabrication shop, not a production line. Every job gets the same care we'd put into our own equipment.</p>
+    <div class="cards">
+      <div class="card">
+        <svg viewBox="0 0 24 24"><path d="M12 2l7 4v6c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-4z"/><path d="M9 12l2 2 4-4"/></svg>
+        <h3>Precision First</h3><p>Tight tolerances and clean welds. We measure twice and check our work — parts fit the first time.</p>
+      </div>
+      <div class="card">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        <h3>Quick Quotes</h3><p>Email a photo or description and get a fast, honest quote. No runaround, no waiting a week for a number.</p>
+      </div>
+      <div class="card">
+        <svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg>
+        <h3>Local Lowell Shop</h3><p>Based in Lowell, serving the Merrimack Valley. Drop off, pick up, or talk through your project in person.</p>
+      </div>
+      <div class="card">
+        <svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 00-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 005.4-5.4L14 13l-3-3 3.7-3.7z"/></svg>
+        <h3>Custom, Not Catalog</h3><p>Odd sizes, one-off repairs, weird angles — custom work is the whole business, not an upsell.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="light" id="area">
+  <div class="wrap">
+    <p class="sec-kicker">/ Service Area</p>
+    <h2>Proudly Serving Lowell &amp; Beyond</h2>
+    <p class="sec-sub">Shop pickup and drop-off in Lowell, plus mobile welding repairs across the Merrimack Valley.</p>
+    <div class="area-grid">
+      <div class="area-chip"><i></i>Lowell</div>
+      <div class="area-chip"><i></i>Chelmsford</div>
+      <div class="area-chip"><i></i>Tewksbury</div>
+      <div class="area-chip"><i></i>Dracut</div>
+      <div class="area-chip"><i></i>Billerica</div>
+      <div class="area-chip"><i></i>Westford</div>
+    </div>
+  </div>
+</section>
+
+<section class="contact-band" id="contact">
+  <div class="wrap">
+    <p class="sec-kicker">/ Contact</p>
+    <h2>Get a Fast, Honest Quote</h2>
+    <p>Email a photo or description of your project — brackets, repairs, custom builds, anything metal. We reply quickly with a straight price.</p>
+    <a class="mail-big" href="mailto:kellysheetmetal01852@gmail.com?subject=Quote%20request%20—%20Kelly%20Sheet%20Metal">kellysheetmetal01852@gmail.com</a>
+    <div class="btn-row" style="justify-content:center;margin-top:26px">
+      <a class="btn btn-ghost" href="https://www.facebook.com/277DuttonStLowellMa/" target="_blank" rel="noopener">Message on Facebook</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>Kelly Sheet Metal · Lowell, MA · <a href="mailto:kellysheetmetal01852@gmail.com">kellysheetmetal01852@gmail.com</a></div>
+    <div class="demo-note">Demo website concept by Wahab Codes</div>
+  </div>
+</footer>
+
+</body>
+</html>
